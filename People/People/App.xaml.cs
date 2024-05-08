@@ -2,15 +2,18 @@
 
 public partial class App : Application
 {
-    // TODO: Add a public static PersonRepository property
+    // Add a public static PersonRepository property
+    public static PersonRepository PersonRepo { get; set; }
 
-    public App()
+    public App(PersonRepository repo)
 	{
 		InitializeComponent();
 
 		MainPage = new AppShell();
 
-        // TODO: Initialize the PersonRepository property with the PersonRespository singleton object
+        //Initialize the PersonRepository property with the PersonRespository singleton object
+        //the dependency injection process automatically populates the repo parameter to the constructor
+        PersonRepo = repo;
 
-    }
+	}
 }
